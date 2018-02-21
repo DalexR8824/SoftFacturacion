@@ -1,0 +1,132 @@
+<div class="x_panel">
+    <div class="title_left">
+      <h3><i class="fa fa-user"></i> Administrador de Usuarios</h3>
+      
+      <div class="clearfix"></div>
+    </div>
+    <div class="x_content">
+
+      <div class="" role="tabpanel" data-example-id="togglable-tabs">
+        <ul id="myTab1" class="nav nav-tabs bar_tabs left" role="tablist">
+          <li role="presentation" class=""><a href="#activo" id="home-tabb" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="false">Activos</a>
+          </li>
+          <li role="presentation" class=""><a href="#inactivo" role="tab" id="profile-tabb" data-toggle="tab" aria-controls="profile" aria-expanded="false">Inactivos</a>
+          </li>
+        </ul>
+        <div id="myTabContent2" class="tab-content">
+          <div role="tabpanel" class="tab-pane fade active in" id="activo" aria-labelledby="home-tab">
+              
+              <div class="">
+                <div class="clearfix"></div>
+                <div class="row">
+                  <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="x_panel">
+                      <div class="x_title">
+                        <h2>Usuarios</h2>
+                        <ul class="nav navbar-right panel_toolbox">
+                          <%= link_to 'Nuevo',new_user_path, :class => "btn btn-round btn-success"%>
+                        </ul>
+                        <div class="clearfix"></div>
+                      </div>
+                      <div class="x_content">
+
+                        <table class="table">
+                          <thead>
+                            <tr>
+                              <th>#</th>
+                              <th>Nombre</th>
+                              <th>Apellido</th>
+                              <th>E-mail</th>
+                              <th>Estatus</th>
+                              <th>Opciones</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <%- item = 1 %>
+                            <%- @users.each do |users|  %>
+                              <tr>
+                                <td><%= item %></td>
+                                <td><%= users.name %></td> 
+                                <td><%= users.lastName %></td>
+                                <td><%= users.email%></td>
+                                <td>Activo</td>
+                                <td><%= link_to "Editar", edit_user_path(users), :class => "btn btn-info btn-xs" %> 
+                                    <%= link_to 'Eliminar', user_path(users), :method => :DELETE, data: {confirm: 'Esta seguro?'}, :class => "btn btn-danger btn-xs" %>
+                                </td>
+                              </tr>
+                              <%- item = item + 1 %>
+                            <% end %>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          </div><!-- End tab Panel -->
+
+          <div role="tabpanel" class="tab-pane fade" id="inactivo" aria-labelledby="profile-tab">
+
+            <div class="">
+                
+
+                <div class="clearfix"></div>
+
+                <div class="row">
+                  <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="x_panel">
+                      <div class="x_title">
+                        <h2>Usuarios</h2>
+                        
+                        <div class="clearfix"></div>
+                      </div>
+                      <div class="x_content">
+
+                        <table class="table">
+                          <thead>
+                            <tr>
+                              <th>#</th>
+                              <th>Nombre</th>
+                              <th>Apellido</th>
+                              <th>E-mail</th>
+                              <th>Estatus</th>
+                              <th>Opciones</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <%- item = 1 %>
+                            <%- @usersD.each do |usersD|  %>
+                              <tr>
+                                <td><%= item %></td>
+                                <td><%= usersD.name %></td> 
+                                <td><%= usersD.lastName %></td>
+                                <td><%= usersD.email%></td>
+                                <td>Inactivo</td>
+                                <td><%= link_to "Editar", edit_user_path(usersD), :class => "btn btn-info btn-xs" %></td>
+                              </tr>
+                              <%- item = item + 1 %>
+                            <% end %>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          </div><!-- End tab Panel -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+

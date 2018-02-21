@@ -1,0 +1,55 @@
+
+<div class="">
+            <div class="page-title">
+              <div class="title_left">
+                <h3>Administrador de Razas</h3>
+              </div>
+
+              
+            </div>
+
+            <div class="clearfix"></div>
+
+            <div class="row">
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>Flujos</h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <%= link_to 'Nuevo', new_breed_path, :class => "btn btn-round btn-success"%>
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th>#</th>
+                          <th>Codigo</th>
+                          <th>Raza</th>
+                          <th>Opciones</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <%- item = 1 %>
+                        <%- @breeds.each do |d|  %>
+                          <tr>
+                            <td><%= item %></td>
+                            <td><%= d.code %></td> 
+                            <td><%= d.name %></td>
+                            <td><%= link_to "Editar", edit_breed_path(d), :class => "btn btn-info btn-xs" %> 
+                            <%= link_to "Eliminar", breed_path(d), :method => :DELETE, data: {confirm: 'Esta seguro?'}, :class => "btn btn-danger btn-xs" %>
+                            </td>
+                          </tr>
+                          <%- item = item + 1 %>
+                        <% end %>
+                      </tbody>
+                    </table>
+
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
